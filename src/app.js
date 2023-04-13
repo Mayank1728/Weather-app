@@ -5,7 +5,7 @@ const geocode = require('../utils/geocode');
 const weather = require('../utils/weather');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 // paths for express config
 const publicDir = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -79,6 +79,6 @@ app.get('*', (req, res) => {
   res.send('Error 404, PAGE NOT FOUND!!');
 });
 
-app.listen(3000, () => {
-  console.log('App is up and running..');
+app.listen(port, () => {
+  console.log('App is up and running on ' + port + ' port!');
 });
